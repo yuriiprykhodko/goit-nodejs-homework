@@ -1,4 +1,4 @@
-const contactsOperations = require("./db");
+const contactsOperations = require("./controllers");
 
 const { Command } = require('commander');
 const program = new Command();
@@ -18,7 +18,7 @@ const argv = program.opts();
   switch (action) {
     case 'list':
       const contacts = await contactsOperations.listContacts();
-    console.log(contacts);
+    console.table(contacts);
       break;
 
     case 'get':
